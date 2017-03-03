@@ -5,7 +5,7 @@ import { throttle } from 'lodash';
 /**
 * Create and return the inView function.
 */
-const inView = () => {
+export default () => {
 
     /**
     * Fallback if window is undefined.
@@ -122,6 +122,3 @@ const inView = () => {
     return control;
 
 };
-
-// Export a singleton.
-export default inView();
