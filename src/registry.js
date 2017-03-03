@@ -60,6 +60,14 @@ class inViewRegistry {
     }
 
     /**
+    * Detach a handler for event
+    */
+    off(event, handler) {
+        this.handlers[event] = this.handlers[event].filter(h => h !== handler);
+        return this;
+    }
+
+    /**
     * Emit event on given element. Used mostly
     * internally, but could be useful for users.
     */
