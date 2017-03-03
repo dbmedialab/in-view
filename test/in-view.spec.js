@@ -1,6 +1,8 @@
 import test from 'ava';
-import inView from '../src/in-view';
+import inViewFactory from '../src/in-view';
 import Registry from '../src/registry';
+
+const inView = inViewFactory();
 
 test('inView is a function', t => {
     t.true(typeof inView === 'function');

@@ -1,5 +1,7 @@
 import test from 'ava';
-import inView from '../src/in-view';
+import inViewFactory from '../src/in-view';
+
+const inView = inViewFactory();
 
 test('inView.threshold returns the threshold', t => {
     t.true(inView.threshold() === 0);

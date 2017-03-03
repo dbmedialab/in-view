@@ -1,6 +1,8 @@
 import test from 'ava';
-import inView from '../src/in-view';
+import inViewFactory from '../src/in-view';
 import { inViewport } from '../src/viewport';
+
+const inView = inViewFactory();
 
 const stub = {
     getBoundingClientRect() {
