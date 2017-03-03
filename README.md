@@ -53,6 +53,13 @@ in-view maintains a separate handler registry for each set of elements captured 
 > inView('.someSelector').once('enter', doSomething);
 > ```
 
+### inView(\<selector>).off(\<event>, \<handler>)
+> Unregister a handler to the elements selected by `selector` for `event`. Handler is a function instance.
+
+> ```js
+> inView('.someSelector').off('enter', doSomething);
+> ```
+
 ### inView.is(\<element>)
 > Check if `element` is in the viewport.
 
