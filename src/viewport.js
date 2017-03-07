@@ -18,9 +18,22 @@ export function inViewport (element, options) {
         y: options.threshold * height
     };
 
-    return intersection.t > (options.offset.top    + threshold.y)
-        && intersection.r > (options.offset.right  + threshold.x)
-        && intersection.b > (options.offset.bottom + threshold.y)
-        && intersection.l > (options.offset.left   + threshold.x);
+    const verticalCheck = (
+        intersection.t > (options.offset.top    + threshold.y) &&
+        intersection.b > (options.offset.bottom + threshold.y)
+    ) || (
+        intersection.t < (options.offset.top    + threshold.y) &&
+        intersection.b < (options.offset.bottom + threshold.y)
+    );
+
+    const horizontalCheck = (
+        intersection.r > (options.offset.right  + threshold.x) &&
+        intersection.l > (options.offset.left   + threshold.x)
+    ) || (
+        intersection.r < (options.offset.right  + threshold.x) &&
+        intersection.l < (options.offset.left   + threshold.x)
+    );
+
+    return verticalCheck && horizontalCheck;
 
 }
