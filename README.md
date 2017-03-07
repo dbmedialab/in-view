@@ -13,10 +13,10 @@ Based on [camwiegert.github.io/in-view](https://camwiegert.github.io/in-view)
 
 ## Installation
 
-Either download the [latest release](https://unpkg.com/in-view/dist/in-view.min.js) and include it in your markup or install with [npm](http://npmjs.com/package/in-view):
+You can install it with [npm](http://npmjs.com/package/kudago-in-view):
 
 ```sh
-npm install --save in-view
+npm install --save kudago-in-view
 ```
 
 ---
