@@ -22,16 +22,16 @@ export function inViewport (element, options) {
         intersection.t > (options.offset.top    + threshold.y) &&
         intersection.b > (options.offset.bottom + threshold.y)
     ) || (
-        intersection.t < (options.offset.top    + threshold.y) &&
-        intersection.b < (options.offset.bottom + threshold.y)
+        intersection.t < -options.offset.top &&
+        intersection.b < -options.offset.bottom
     );
 
     const horizontalCheck = (
         intersection.r > (options.offset.right  + threshold.x) &&
         intersection.l > (options.offset.left   + threshold.x)
     ) || (
-        intersection.r < (options.offset.right  + threshold.x) &&
-        intersection.l < (options.offset.left   + threshold.x)
+        intersection.r < -options.offset.right &&
+        intersection.l < -options.offset.left
     );
 
     return verticalCheck && horizontalCheck;
