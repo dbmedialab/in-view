@@ -59,21 +59,28 @@ export default () => {
     * The main interface. Take a selector and retrieve
     * the associated registry or create a new one.
     */
-    let control = (selector) => {
+    let control = (selector, selectorOptions = {}) => {
+
+        const actualOptions = {
+            "offset": selectorOptions.offset || options.offset,
+            "threshold": selectorOptions.threshold || options.threshold,
+            "test": selectorOptions.test || options.test
+        }
 
         if (typeof selector !== 'string') return;
 
         // Get an up-to-date list of elements.
         let elements = [].slice.call(document.querySelectorAll(selector));
 
-        // If the registry exists, update the elements.
+        // If the registry exists, update the elements and selectorOptions
         if (selectors.history.indexOf(selector) > -1) {
             selectors[selector].elements = elements;
+            selectors[selector].options = actualOptions
         }
 
         // If it doesn't exist, create a new registry.
         else {
-            selectors[selector] = Registry(elements, options);
+            selectors[selector] = Registry(elements, actualOptions);
             selectors.history.push(selector);
         }
 
