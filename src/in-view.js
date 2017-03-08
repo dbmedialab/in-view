@@ -18,6 +18,7 @@ export default () => {
     */
     const interval = 100;
     const triggers = ['scroll', 'resize', 'load'];
+    let eventOptions = null;
 
     /**
     * Maintain a hashmap of all registries, a history
@@ -41,7 +42,7 @@ export default () => {
     * which checks each registry.
     */
     triggers.forEach(event =>
-        addEventListener(event, check));
+        addEventListener(event, check, eventOptions));
 
     /**
     * If supported, use MutationObserver to watch the
@@ -118,6 +119,14 @@ export default () => {
     * and return the interface.
     */
     control.is = el => options.test(el, options);
+
+
+    /**
+    * Adds the possibility to change the options arg sendt to addEventListener.
+    * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener 
+    */
+    control.addEventOptions = eventOpts => eventOptions = eventOpts;
+    
     control.offset(0);
     return control;
 
