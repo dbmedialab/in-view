@@ -4,7 +4,6 @@
 * Maintain a list of elements, a subset which currently pass
 * a given criteria, and fire events when elements move in or out.
 */
-
 class inViewRegistry {
 
     constructor(elements, options) {

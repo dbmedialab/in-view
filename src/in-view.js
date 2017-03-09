@@ -16,7 +16,7 @@ export default () => {
     * How often and on what events we should check
     * each registry.
     */
-    const interval = 100;
+    let interval = 100;
     const triggers = ['scroll', 'resize', 'load'];
     let eventOptions = null;
 
@@ -27,39 +27,50 @@ export default () => {
     let selectors = { history: [] };
     let options   = { offset: {}, threshold: 0, test: inViewport };
 
-    /**
-    * Check each registry from selector history,
-    * throttled to interval.
-    */
-    const check = throttle(() => {
-        selectors.history.forEach(selector => {
-            selectors[selector].check();
-        });
-    }, interval);
 
     /**
-    * For each trigger event on window, add a listener
-    * which checks each registry.
-    */
-    triggers.forEach(event =>
-        addEventListener(event, check, eventOptions));
+     * initlize only the throtteling and addEventListener when it is used
+     */
+    let initialized = false; 
+    const init = () => {
+        /**
+        * Check each registry from selector history,
+        * throttled to interval.
+        */
+        const check = throttle(() => {
+            selectors.history.forEach(selector => {
+                selectors[selector].check();
+            });
+        }, interval);
 
-    /**
-    * If supported, use MutationObserver to watch the
-    * DOM and run checks on mutation.
-    */
-    if (window.MutationObserver) {
-        addEventListener('DOMContentLoaded', () => {
-            new MutationObserver(check)
-                .observe(document.body, { attributes: true, childList: true, subtree: true });
-        });
+        /**
+        * For each trigger event on window, add a listener
+        * which checks each registry.
+        */
+        triggers.forEach(event =>
+            addEventListener(event, check, eventOptions));
+
+        /**
+        * If supported, use MutationObserver to watch the
+        * DOM and run checks on mutation.
+        */
+        if (window.MutationObserver) {
+            addEventListener('DOMContentLoaded', () => {
+                new MutationObserver(check)
+                    .observe(document.body, { attributes: true, childList: true, subtree: true });
+            });
+        }
     }
-
     /**
     * The main interface. Take a selector and retrieve
     * the associated registry or create a new one.
     */
     let control = (selector, selectorOptions = {}) => {
+
+        if(!initialized) {
+            init()
+            initialized = true
+        }
 
         const actualOptions = {
             "offset": selectorOptions.offset || options.offset,
@@ -120,20 +131,38 @@ export default () => {
             ? options.test = fn
             : options.test;
     };
-
+ 
     /**
     * Add proxy for test function, set defaults,
     * and return the interface.
     */
     control.is = el => options.test(el, options);
 
-
     /**
     * Adds the possibility to change the options arg sendt to addEventListener.
     * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener 
+    * @return bool false if in-view is already initialized
     */
-    control.addEventOptions = eventOpts => eventOptions = eventOpts;
-    
+    control.addEventOptions = newEventOptions => {
+        if(initialized) {
+         console && console.warn('in-view.js - can not call the function addEventOptions, after in-view is initialized');
+         return false;   
+        }
+        eventOptions = newEventOptions;
+    }
+
+    /**
+    * Adds the possibility to change the throttled time. 
+    * @return bool false if in-view is already initialized
+    */
+    control.interval = newInterval => {
+        if(initialized) {
+         console && console.warn('in-view.js - can not call the function interval, after in-view is initialized');
+         return false;   
+        }
+        interval = newInterval;
+    }
+
     control.offset(0);
     return control;
 

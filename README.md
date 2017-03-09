@@ -71,11 +71,25 @@ in-view maintains a separate handler registry for each set of elements captured 
 ### inView.addEventOptions(\<options>)
 > If you are not going to cancel the event, you can get a perfomance gain by adding `preventDefault`.
 > https://developers.google.com/web/updates/2016/06/passive-event-listeners
+> OBS: must before any call to inView
 > ```js
+> import inViewFactory from 'in-view';
+> inView = inView();
 > const options = { capture: true, once: false, passive:true }
 > inView.addEventOptions(options);
-> // => true
+> // inView.addEventOptions must be called before the first call to inView constructor
+> inView("div")
 > ```
+
+
+
+### inView.interval(\<newIntervalTime>)
+> If you want to change the throttled time on how often inView checks the elements
+> OBS: must before any call to inView, see example above
+> ```js
+> inView.interval(200); // default is 100
+> ```
+
 
 ### inView.offset(\<offset>)
 > By default, in-view considers something in viewport if it breaks any edge of the viewport. This can be used to set an offset from that edge. For example, an offset of `100` will consider elements in viewport if they break any edge of the viewport by at least `100` pixels. `offset` can be a positive or negative integer.
