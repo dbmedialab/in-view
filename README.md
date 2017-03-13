@@ -152,7 +152,7 @@ As a small caveat, in-view utilizes [MutationObserver](https://developer.mozilla
 
 ## Performance
 
-Any library that watches scroll events runs the risk of degrading page performance. To mitigate this, currently, in-view only registers a single, throttled (maximum once every 100ms) event listener on each of `window`'s `load`, `resize`, and `scroll` events and uses those to run a check on each registry.
+Any library that watches scroll events runs the risk of degrading page performance. To mitigate this, currently, in-view only registers a single, throttled (can be customized) event listener on each of `window`'s `load`, `resize`, and `scroll` events and uses those to run a check on each registry.
 
 ### Utilizing IntersectionObserver
 
