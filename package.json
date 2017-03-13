@@ -1,6 +1,6 @@
 {
   "name": "kudago-in-view",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Get notified when a DOM element enters or exits the viewport.",
   "repository": "https://github.com/camwiegert/in-view",
   "main": "src/index.js",
