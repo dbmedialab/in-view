@@ -1,6 +1,6 @@
 import Registry from './registry';
 import { inViewport } from './viewport';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 
 /**
 * Create and return the inView function.
