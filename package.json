@@ -45,8 +45,8 @@
       "sourceType": "module"
     }
   },
-  "author": "Cam Wiegert <cam@camwiegert.com>",
-  "homepage": "https://camwiegert.github.io/in-view",
+  "author": "Yura Trambitskiy <tram.yura@gmail.com>",
+  "homepage": "https://github.com/kudago/in-view",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.16.0",
