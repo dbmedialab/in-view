@@ -41,6 +41,17 @@ class inViewRegistry {
     }
 
     /**
+     * Returns all the elements that are "inview"
+     * In other words, elements that has entered the viewport but not exited given the criteria given
+     * @returns {Node[]} nodes that are inview.
+     */
+    runExitOnElementsCurrentlyInView() {
+        this.current.forEach(element => {
+            this.emit('exit', element)
+        });
+    }
+
+    /**
     * Register a handler for event, to be fired
     * for every event.
     */

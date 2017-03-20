@@ -99,6 +99,15 @@ export default () => {
     };
 
     /**
+     * Check all selectors and emit a exit on the things that are inView
+     */
+    control.runExitOnElementsCurrentlyInView = () => {
+        selectors.history.forEach(selector => {
+            selectors[selector].runExitOnElementsCurrentlyInView();
+        });
+    }
+
+    /**
     * Mutate the offset object with either an object
     * or a number.
     */
