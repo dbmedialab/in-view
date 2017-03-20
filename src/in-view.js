@@ -154,7 +154,7 @@ export default () => {
     */
     control.addEventOptions = newEventOptions => {
         if(initialized) {
-         console && console.warn('in-view.js - can not call the function addEventOptions, after in-view is initialized');
+         console && console.warn('in-view.js - can not call the function addEventOptions, after in-view is initialized'); // eslint-disable-line no-console
          return false;   
         }
         eventOptions = newEventOptions;
@@ -166,7 +166,7 @@ export default () => {
     */
     control.interval = newInterval => {
         if(initialized) {
-         console && console.warn('in-view.js - can not call the function interval, after in-view is initialized');
+         console && console.warn('in-view.js - can not call the function interval, after in-view is initialized'); // eslint-disable-line no-console
          return false;   
         }
         interval = newInterval;
