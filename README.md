@@ -118,6 +118,13 @@ in-view maintains a separate handler registry for each set of elements captured 
 > inView.threshold(1);
 > ```
 
+
+### inView.runExitOnElementsCurrentlyInView()
+> runs a check on all the elements currently inView (not in viewport, but based on the criterias given in threshold and offset) and runs exit on them. Can for example be used to send data to an analytics platform on the onunload event
+> ```js
+> inView.runExitOnElementsCurrentlyInView()
+> ```
+
 ### inView.test(\<test>)
 > Override in-view's default visibility criteria with a custom function. This function will receive the element and the options object as its only two arguments. Return `true` when an element should be considered visible and `false` otherwise.
 > ```js
