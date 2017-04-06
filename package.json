@@ -46,7 +46,7 @@
     }
   },
   "author": "Sindre Svendby <sinsvend@gmail.com>",
-  "homepage": "https://github.com/aller/in-view",
+  "homepage": "https://github.com/dbmedialab/in-view",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.16.0",
