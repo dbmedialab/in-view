@@ -1,22 +1,23 @@
 # in-view.js :eyes:
 
-Get notified when a DOM element enters or exits the viewport. A small (~1.9kb gzipped), dependency-free, javascript utility for IE9+.
+Get notified when a DOM element enters or exits the viewport. A small almost dependency-free, javascript utility for IE9+.
 
+Based on [kudago-in-view](http://npmjs.com/package/kudago-in-view)
+that is based on 
 Based on [camwiegert.github.io/in-view](https://camwiegert.github.io/in-view)
 
-[![Build Status](https://travis-ci.org/camwiegert/in-view.svg?branch=master)](https://travis-ci.org/camwiegert/in-view)
-[![npm/in-view](https://img.shields.io/npm/v/in-view.svg?maxAge=2592000)](https://npmjs.com/package/in-view)
+This is a fork, you should check out if the original has all the usecases you need 
+before using this.
 
-![in-view.js](https://camwiegert.github.io/in-view/lib/images/in-view.png)
 
 ---
 
 ## Installation
 
-You can install it with [npm](http://npmjs.com/package/kudago-in-view):
+You can install it with [npm](http://npmjs.com/package/aller-in-view):
 
 ```sh
-npm install --save kudago-in-view
+npm install --save aller-in-view
 ```
 
 ---
