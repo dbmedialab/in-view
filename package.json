@@ -1,6 +1,6 @@
 {
   "name": "@soldotno/aller-in-view",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Get notified when a DOM element enters or exits the viewport.",
   "repository": "https://github.com/dbmedialab/in-view/",
   "main": "dist/@soldotno/aller-in-view.min.js",
