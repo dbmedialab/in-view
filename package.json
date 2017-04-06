@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "description": "Get notified when a DOM element enters or exits the viewport.",
   "repository": "https://github.com/dbmedialab/in-view/",
-  "main": "dist/index.js",
+  "main": "dist/@soldotno/aller-in-view.min.js",
   "scripts": {
     "start": "NODE_ENV=production webpack -wp",
     "build": "NODE_ENV=production webpack -p",
